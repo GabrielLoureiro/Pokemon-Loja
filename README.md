@@ -19,14 +19,14 @@ Como parte das boas práticas de engenharia de software, o repositório passou p
 
 ---
 
-## 🧪 Engenharia de Qualidade (QA) - Automação
+## 🧪 Engenharia de Qualidade (QA) - Automação & BDD
 
-A aplicação conta com uma esteira de testes de ponta a ponta (E2E) estruturada utilizando o framework **Cypress** para mitigar regressões de código de forma assíncrona.
+A aplicação conta com uma esteira de testes de ponta a ponta (E2E) estruturada com o framework **Cypress** integrado ao **Cucumber** para desenvolvimento guiado por comportamento (**BDD**).
 
-### Cenários Cobertos pela Automação:
-* **Identidade Visual:** Validação de renderização do cabeçalho e inicialização do estado do carrinho zerado.
-* **Resiliência Assíncrona:** Teste com tolerância a atrasos de rede (`timeout: 10s`) garantindo que os cards esperem os dados da PokeAPI carregarem antes de validar imagens, títulos e preços.
-* **Fluxo de Integração:** Simulação de clique no botão de compras com asserção do incremento dinâmico no contador do carrinho em tempo real.
+### Cenários Cobertos em Gherkin (`.feature`):
+* **Identidade Visual & Negócio:** Validação de inicialização do estado do carrinho e renderização de componentes de interface.
+* **Resiliência Assíncrona:** Gerenciamento dinâmico de tempo de resposta da PokeAPI (`timeout: 10s`) mitigando testes intermitentes (*flaky tests*).
+* **Fluxo de Integração:** Simulação de interações do usuário (clique no botão de compras) com asserção do incremento de itens no carrinho em tempo real baseado em especificações escritas em linguagem natural.
 
 ---
 
@@ -34,7 +34,7 @@ A aplicação conta com uma esteira de testes de ponta a ponta (E2E) estruturada
 
 * **Front-End:** React (Class Components), JSX, CSS3 (Grid e Flexbox)
 * **Integração:** Axios, PokeAPI
-* **Automação de Testes:** Cypress E2E
+* **Automação de Testes:** Cypress E2E & @badeball/cypress-cucumber-preprocessor (Cucumber / BDD)
 * **Segurança:** GitHub Dependabot (DevSecOps)
 * **Ambiente & Pacotes:** Node.js, npm / Yarn
 
@@ -50,7 +50,7 @@ cd Pokemon-Loja
 
 ### 2. Instalar as dependências
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 ### 3. Configurar compatibilidade de criptografia (Se necessário no Windows)
@@ -64,9 +64,9 @@ npm start
 ```
 A aplicação abrirá no endereço: `http://localhost:3000`
 
-### 5. Abrir e executar a suíte de Testes (Cypress)
+### 5. Executar os cenários de Teste em BDD (Cypress + Cucumber)
 Com a loja rodando em segundo plano, abra um novo terminal e execute:
 ```bash
 npx cypress open
 ```
-No painel do Cypress, selecione **E2E Testing** e clique no arquivo `loja.cy.js` para assistir ao robô rodar as validações de interface automaticamente.
+No painel do Cypress, selecione **E2E Testing** e clique no arquivo `carrinho.feature` para assistir ao robô rodar as validações de comportamento automaticamente.
