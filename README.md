@@ -1,6 +1,6 @@
 # 🛒 Pokémon Loja - E-commerce & Testes Automatizados
 
-Este repositório armazena uma aplicação front-end desenvolvida em **React** integrada à **PokeAPI** para listagem dinâmica de produtos (Pokémon). O projeto foi refatorado para servir como portfólio técnico focado em **Engenharia de Software, DevSecOps e Quality Assurance (QA)**.
+Este repositório armazena uma aplicação front-end desenvolvida em **React** integrada à **PokeAPI** para listagem dinâmica de produtos (Pokémon). O projeto foi refatorado para servir como portfólio técnico completo focado em **Engenharia de Software, DevSecOps e Quality Assurance (QA)**.
 
 ---
 
@@ -19,16 +19,28 @@ Como parte das boas práticas de engenharia de software, o repositório passou p
 
 ---
 
+## 🧪 Engenharia de Qualidade (QA) - Automação
+
+A aplicação conta com uma esteira de testes de ponta a ponta (E2E) estruturada utilizando o framework **Cypress** para mitigar regressões de código de forma assíncrona.
+
+### Cenários Cobertos pela Automação:
+* **Identidade Visual:** Validação de renderização do cabeçalho e inicialização do estado do carrinho zerado.
+* **Resiliência Assíncrona:** Teste com tolerância a atrasos de rede (`timeout: 10s`) garantindo que os cards esperem os dados da PokeAPI carregarem antes de validar imagens, títulos e preços.
+* **Fluxo de Integração:** Simulação de clique no botão de compras com asserção do incremento dinâmico no contador do carrinho em tempo real.
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 
 * **Front-End:** React (Class Components), JSX, CSS3 (Grid e Flexbox)
 * **Integração:** Axios, PokeAPI
+* **Automação de Testes:** Cypress E2E
 * **Segurança:** GitHub Dependabot (DevSecOps)
 * **Ambiente & Pacotes:** Node.js, npm / Yarn
 
 ---
 
-## 💻 Como Rodar o Projeto Localmente
+## 💻 Como Rodar o Projeto e os Testes Localmente
 
 ### 1. Clonar o repositório
 ```bash
@@ -41,21 +53,20 @@ cd Pokemon-Loja
 npm install
 ```
 
-### 3. Configurar compatibilidade de criptografia (Se necessário)
-Em ambientes Windows com Node.js v17+ ou superior, execute no terminal antes de inicializar:
+### 3. Configurar compatibilidade de criptografia (Se necessário no Windows)
 ```powershell
 \$env:NODE_OPTIONS="--openssl-legacy-provider"
 ```
 
-### 4. Inicializar a aplicação
+### 4. Inicializar a aplicação (Loja)
 ```bash
 npm start
 ```
-A aplicação abrirá automaticamente no endereço: `http://localhost:3000`
+A aplicação abrirá no endereço: `http://localhost:3000`
 
----
-
-## 🧪 Estrutura de Qualidade (QA) - Próximos Passos
-* [ ] Implementação de **Testes de Fumaça (Smoke Tests)** com **Cypress** para validação de carregamento da Home.
-* [ ] Automação de cenários de ponta a ponta (E2E) simulando adições de itens ao carrinho de compras.
-* [ ] Estruturação de cenários em BDD utilizando sintaxe **Gherkin / Cucumber**.
+### 5. Abrir e executar a suíte de Testes (Cypress)
+Com a loja rodando em segundo plano, abra um novo terminal e execute:
+```bash
+npx cypress open
+```
+No painel do Cypress, selecione **E2E Testing** e clique no arquivo `loja.cy.js` para assistir ao robô rodar as validações de interface automaticamente.
