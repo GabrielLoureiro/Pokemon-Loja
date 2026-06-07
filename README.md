@@ -1,68 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🛒 Pokémon Loja - E-commerce & Testes Automatizados
 
-## Available Scripts
+Este repositório armazena uma aplicação front-end desenvolvida em **React** integrada à **PokeAPI** para listagem dinâmica de produtos (Pokémon). O projeto foi refatorado para servir como portfólio técnico focado em **Engenharia de Software, DevSecOps e Quality Assurance (QA)**.
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+## 🚀 Funcionalidades Implementadas
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **Consumo de API Assíncrono:** Utilização do `Axios` para buscas paralelas via `Promise.all` coletando metadados, imagens oficiais e calculando preços dinâmicos.
+* **Vitrine Responsiva:** Interface reestruturada de layout linear para um modelo de grade profissional utilizando **CSS Grid Layout** (`auto-fill / minmax`).
+* **Carrinho de Compras Interativo:** Sistema dinâmico em tempo de execução para adição de itens ao carrinho com manipulação de estado (`prevState`) e interceptação de rotas padrões (`preventDefault`).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
 
-### `yarn test`
+## 🔒 Segurança & DevSecOps
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Como parte das boas práticas de engenharia de software, o repositório passou por uma auditoria de segurança assistida pelo **GitHub Dependabot**:
+* **Mitigação de Vulnerabilidades:** Correção ativa de falhas de alta severidade (como ReDoS - CWE-1333) através do upgrade controlado do pacote `axios` para versões seguras (`^0.32.0`).
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Tecnologias Utilizadas
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* **Front-End:** React (Class Components), JSX, CSS3 (Grid e Flexbox)
+* **Integração:** Axios, PokeAPI
+* **Segurança:** GitHub Dependabot (DevSecOps)
+* **Ambiente & Pacotes:** Node.js, npm / Yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+## 💻 Como Rodar o Projeto Localmente
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 1. Clonar o repositório
+```bash
+git clone https://github.com
+cd Pokemon-Loja
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Instalar as dependências
+```bash
+npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 3. Configurar compatibilidade de criptografia (Se necessário)
+Em ambientes Windows com Node.js v17+ ou superior, execute no terminal antes de inicializar:
+```powershell
+\$env:NODE_OPTIONS="--openssl-legacy-provider"
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 4. Inicializar a aplicação
+```bash
+npm start
+```
+A aplicação abrirá automaticamente no endereço: `http://localhost:3000`
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## 🧪 Estrutura de Qualidade (QA) - Próximos Passos
+* [ ] Implementação de **Testes de Fumaça (Smoke Tests)** com **Cypress** para validação de carregamento da Home.
+* [ ] Automação de cenários de ponta a ponta (E2E) simulando adições de itens ao carrinho de compras.
+* [ ] Estruturação de cenários em BDD utilizando sintaxe **Gherkin / Cucumber**.
